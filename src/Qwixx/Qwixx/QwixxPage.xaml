@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Qwixx.QwixxPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+
+    <ContentView>
+        <StackLayout x:Name="stackLayout"  Margin="3">
+
+            <Grid x:Name="gridAnkreuzFelderSpielfarben">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="30" />
+                    <RowDefinition Height ="30" />
+                    <RowDefinition Height ="30" />
+                    <RowDefinition Height ="30" />
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Grid x:Name="gridFehlversucheUndSpielstand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"  />
+                    <ColumnDefinition Width="Auto"  />
+                    <ColumnDefinition Width="Auto"  />
+                    <ColumnDefinition Width="Auto"  />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="Auto" />
+                    <RowDefinition Height ="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--<Label x:name="Test" Grid.Column="0" Grid.RowSpan="2" Text="QWIXX" FontAttributes="Italic" FontSize="Large"/>-->
+
+                <Button Grid.Column="0" Grid.Row="0" x:Name="btnNeuesSpiel" Text="Neues Spiel" Margin="0,0,0,0"/>
+                <StackLayout Grid.Column="1" Orientation="Vertical">
+                    <Label Text="Fehlwürfe" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="je -5" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <Grid Grid.Column="2" Grid.Row="0" x:Name="gridFehlversuche" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height ="30" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+
+                <Button Grid.Column="0" Grid.Row="1" x:Name="btnBerechne" Text="Berechne" Margin="0,0,0,0"/>
+                <Label Grid.Column="1" Grid.Row="1" Text="Ergebnis:" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <StackLayout Grid.Column="2" Grid.Row="1" x:Name="stackSpielstand" Orientation="Horizontal" >
+                    <Label x:Name="SummeRot" BackgroundColor="Red" FontAttributes="Bold" Text="0" WidthRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="+" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label x:Name="SummeGelb" BackgroundColor="Yellow" FontAttributes="Bold" Text="0" WidthRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="+" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label x:Name="SummeGruen" BackgroundColor="Green" FontAttributes="Bold" Text="0" WidthRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="+" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label x:Name="SummeBlau" BackgroundColor="SkyBlue" FontAttributes="Bold" Text="0" WidthRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="-" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label x:Name="SummeFehlversuche" BackgroundColor="LightGray" FontAttributes="Bold" Text="0" WidthRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="=" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label x:Name="SummeGesamt" BackgroundColor="White" FontAttributes="Bold" Text="0" MinimumWidthRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+            </Grid>
+
+            <Grid x:Name="gridWertungstabelle">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"  />
+                    <ColumnDefinition Width="Auto"  />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="Auto" />
+                    <RowDefinition Height ="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--<Label Grid.Column="0" Grid.Row="0" Text="Kreuze&#10;Punkte" BackgroundColor="LightGray"/>-->
+                <Label  Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="0"  Text="Punkte je Kreuze" BackgroundColor="LightGray"/>
+                <Button Grid.Column="11" Grid.Row="0" x:Name="btnInfo" Text="i" Margin="0,0,0,0" 
+                        TextColor="White" BackgroundColor="Blue" FontAttributes="Bold" 
+                        WidthRequest="40" HeightRequest="40" BorderRadius="20"/>
+
+                <Frame Grid.Column="0" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="1" />
+                        <Label Text="1" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical">
+                        <Label Text="2" />
+                        <Label Text="3" />
+                    </StackLayout>
+                </Frame>
+                <Frame  Grid.Column="2" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical">
+                        <Label Text="3" />
+                        <Label Text="6" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="3" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="4" />
+                        <Label Text="10" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="4" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="5" />
+                        <Label Text="15" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="5" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="6" />
+                        <Label Text="21" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="6" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="7" />
+                        <Label Text="28" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="7" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="8" />
+                        <Label Text="36" />
+                    </StackLayout>
+                </Frame>
+                <Frame  Grid.Column="8" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="9" />
+                        <Label Text="45" />
+                    </StackLayout>
+                </Frame>
+                <Frame  Grid.Column="9" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="10" />
+                        <Label Text="55" />
+                    </StackLayout>
+                </Frame>
+                <Frame  Grid.Column="10" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="11" />
+                        <Label Text="66" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="11" Grid.Row="1" OutlineColor="Black" Padding="0,0,0,0">
+                    <StackLayout Padding="5,5,5,5" Orientation="Vertical" >
+                        <Label Text="12"/>
+                        <Label Text="78" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+
+        </StackLayout>
+    </ContentView>
+</ContentPage>

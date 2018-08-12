@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{0EB1693A-60CA-465B-B450-3D7013CFF49F}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Qwixx</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AnkreuzFeld.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AnkreuzFeldAugenzahl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ButtonAnkreuzFeldSpielfarbe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Integration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QwixxBc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QwixxPage.xaml.cs">
+      <DependentUpon>QwixxPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Spielfarbe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spielfeld.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spielstand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TileAnkreuzFeldSpielfarbe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TileAnkreuzFeldFehlversuch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)QwixxPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
